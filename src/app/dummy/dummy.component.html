@@ -1,1 +1,43 @@
-<p>dummy works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<section id="projects">
+  <div class="projects container">
+    <div class="projects-header">
+      <h1 class="section-title">Recent <span>Blogs</span></h1>
+    </div>
+    <br><br>
+    <div class="all-projects">
+      <div *ngFor="let b of Blogs">
+      <div class="project-item">
+        <div class="project-info">
+          <br>
+          <h1>{{b.titre}}</h1>
+          <br>
+          <h2>Crée par :</h2><h2>{{b.name}} </h2>
+          <p>
+            {{b.description}}
+          </p>
+          <p>
+            {{b.like}}
+
+          <button class="like" routerLink="{{b.id}}" (click)="addlike(b.id)">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </button>
+           {{b.dislike}}
+            <button class="dislike">
+          <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+        </button>
+          </p>
+
+        </div>
+        <div class="project-img">
+          <img src="/assets/img-1.png" alt="img">
+        </div>
+
+      </div>
+<br>
+      </div>
+    </div>
+    </div>
+
+</section>
+<!-- End Projects Section -->
