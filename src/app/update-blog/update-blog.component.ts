@@ -1,20 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder , FormGroup , Validators} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {BlogService} from '../Shared/blog.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Observable} from 'rxjs';
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  selector: 'app-update-blog',
+  templateUrl: './update-blog.component.html',
+  styleUrls: ['./update-blog.component.css']
 })
-export class BlogComponent implements OnInit {
-  myForm: FormGroup;
+export class UpdateBlogComponent implements OnInit {
+  id;
+  Blog;
+  form: FormGroup;
   profilePicture: string = null;
   errorMsg: string;
   files: string = null;
-  constructor(private fb: FormBuilder, public Blogservice: BlogService , private router: Router) {
-    this.myForm = this.fb.group({
+
+  constructor(private fb: FormBuilder,
+              private blogservice: BlogService,
+              private route: ActivatedRoute,
+              private router: Router) {
+
+    this.form = this.fb.group({
       id: ['', Validators.required],
       titre: ['', Validators.required],
       name: ['', Validators.required],
@@ -22,44 +29,59 @@ export class BlogComponent implements OnInit {
       date: ['', Validators.required],
       description: ['', Validators.required],
       image: ['', Validators.required],
-      like: ['0'],
-      dislike: ['0']
+      like: [''],
+      dislike: ['']
     });
-    this.myForm.valueChanges.subscribe(console.log);
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
+    this.blogservice.getBlogbyid(this.id).subscribe((result) => {
+      this.Blog = result;
+      this.form.patchValue(this.Blog);
+    });
+  }
+  submit() {
+
+    this.blogservice
+      .updateBlog(this.form.value, this.id)
+      .subscribe(() => {
+
+        this.router.navigate(['/accueil']);
+      });
+
   }
   get titre(){
-    return this.myForm.get('titre');
+    return this.form.get('titre');
   }
   // tslint:disable-next-line:typedef
   get name(){
-    return this.myForm.get('name');
+    return this.form.get('name');
   }
   // tslint:disable-next-line:typedef
   get type(){
-    return this.myForm.get('type');
+    return this.form.get('type');
   }
   // tslint:disable-next-line:typedef
   get date(){
-    return this.myForm.get('date');
+    return this.form.get('date');
   }
   // tslint:disable-next-line:typedef
   get description(){
-    return this.myForm.get('description');
+    return this.form.get('description');
   }
   // tslint:disable-next-line:typedef
   get image(){
-    return this.myForm.get('image');
+    return this.form.get('image');
   }
   // tslint:disable-next-line:typedef
   get like(){
-    return this.myForm.get('like');
+    return this.form.get('like');
   }
   // tslint:disable-next-line:typedef
   get dislike(){
-    return this.myForm.get('dislike');
+    return this.form.get('dislike');
   }
   // tslint:disable-next-line:typedef
   handleProfilePictureInput(file) {

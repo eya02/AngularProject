@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Blog} from './Models/Blog';
+import {Blog} from '../Models/Blog';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 
@@ -28,6 +28,10 @@ export class BlogService {
     const url: string = 'http://localhost:3000/Blogs/' + id;
     return this.http.put(url, data);
   }
+  updateLike(like: string, id: any): Observable<any> {
+    const url: string = 'http://localhost:3000/Blogs/' + id;
+    return this.http.put(url, like);
+  }
   // tslint:disable-next-line:typedef
   getallBlog() {
 
@@ -43,7 +47,7 @@ export class BlogService {
 
     this.addBlog(form)
       .subscribe(() => {
-          this.router.navigate(['/list']);
+          this.router.navigate(['/accueil']);
         },
         (error) => {
           switch (error.status) {

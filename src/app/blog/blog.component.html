@@ -1,4 +1,5 @@
 <br>
+
 <form [formGroup]="myForm" (ngSubmit)=" Blogservice.submit(myForm.value) " class="example-form" >
 
 
@@ -17,17 +18,21 @@
   </mat-form-field>
 
 <br>
-  <mat-form-field class="example-full-width">
-    <input  matInput placeholder="type" formControlName="type">
-     <mat-error *ngIf="type.invalid" >
-        Veuillez saisir le type
-      </mat-error>
-  </mat-form-field>
-<br>
+
+  <mat-label>Type</mat-label>
+  <br>
+  <br>
+  <mat-radio-group aria-label="Select an option"  formControlName="type">
+    <mat-radio-button value="Cusine">Cuisine</mat-radio-button>
+    <mat-radio-button value="Voyage">Voyage</mat-radio-button>
+    <mat-radio-button value="Aventure">Aventure</mat-radio-button>
+  </mat-radio-group>
+
+  <br>
+
 
 
   <mat-form-field class="example-full-width" >
-
       <mat-label>Date</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="date">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -53,6 +58,8 @@
     <img id="importer" class="profile-picture" [src]="profilePicture">
 
   </mat-form-field>
+
+
 <br><br>
-  <button type="submit"  mat-raised-button >Ajouter un Blog</button>
+  <button type="submit"  mat-raised-button><mat-icon>add</mat-icon>Ajouter un Blog</button>
 </form>
