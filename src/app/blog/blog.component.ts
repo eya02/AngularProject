@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
   files: string = null;
   constructor(private fb: FormBuilder, public Blogservice: BlogService , private router: Router) {
     this.myForm = this.fb.group({
-      id: ['', Validators.required],
+      id: [''],
       titre: ['', Validators.required],
       name: ['', Validators.required],
       type: ['', Validators.required],

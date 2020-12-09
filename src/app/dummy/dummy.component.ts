@@ -18,7 +18,7 @@ export class DummyComponent implements OnInit {
 
   @Input()val: string;
 
-vars: string;
+vars = '';
   constructor(private serviceblog: BlogService, private activatedRoute: ActivatedRoute ,  private router: Router) {
     }
 

@@ -2,7 +2,6 @@
 
 <form [formGroup]="myForm" (ngSubmit)=" Blogservice.submit(myForm.value) " class="example-form" >
 
-
   <mat-form-field class="example-full-width" >
     <input  matInput placeholder="nom" formControlName="name">
       <mat-error *ngIf="name.invalid" >
@@ -23,7 +22,7 @@
   <br>
   <br>
   <mat-radio-group aria-label="Select an option"  formControlName="type">
-    <mat-radio-button value="Cusine">Cuisine</mat-radio-button>
+    <mat-radio-button value="Cuisine">Cuisine</mat-radio-button>
     <mat-radio-button value="Voyage">Voyage</mat-radio-button>
     <mat-radio-button value="Aventure">Aventure</mat-radio-button>
   </mat-radio-group>
@@ -61,5 +60,5 @@
 
 
 <br><br>
-  <button type="submit"  mat-raised-button><mat-icon>add</mat-icon>Ajouter un Blog</button>
+  <button type="submit"  mat-raised-button [disabled]="myForm.invalid"><mat-icon>add</mat-icon>Ajouter un Blog</button>
 </form>

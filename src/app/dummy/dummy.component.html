@@ -7,8 +7,41 @@
       <h1 class="section-title">Recent <span>Blogs</span></h1>
     </div>
     <input  placeholder="Search..." type="text" [(ngModel)]="inputVal" />
-    <br><br>
+    <br>
     <div *ngFor="let b of Blogs ; let i=index">
+      <div *ngIf="(vars =='')">
+        <div *ngIf="inputVal =='' ">
+          <div class="all-projects">
+            <div class="project-item" >
+              <div class="project-info" >
+                <h1>{{b.titre}}</h1>
+                <br>
+                <h2>Crée par :</h2><h2> {{b.name}}</h2>
+                <p>
+                  {{b.type}}
+                </p>
+                <p>
+                  {{b.like}}
+                  <button type="submit" class="like" >
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true" (click)="Addlike(b.id)" [routerLink]="['/accueil']"></i>
+                  </button>
+                  {{b.dislike}}
+                  <button class="dislike">
+                    <i class="fa fa-thumbs-o-down" aria-hidden="true" (click)="Adddislike(b.id)" [ngStyle]="{'color':b.dislike < 5 ? 'yellow' : 'red'}"></i>
+                  </button>
+                </p>
+              </div>
+              <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
+                <img src="/assets/img-1.png" alt="img" >
+              </div></div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+
+    <div *ngFor="let b of Blogs ; let i=index">
+      <div *ngIf="(b.type==vars)">
       <div *ngIf="inputVal =='' ">
     <div class="all-projects">
       <div class="project-item" >
@@ -31,14 +64,13 @@
           <i class="fa fa-thumbs-o-down" aria-hidden="true" (click)="Adddislike(b.id)" [ngStyle]="{'color':b.dislike < 5 ? 'yellow' : 'red'}"></i>
            </button>
           </p>
-
-        </div>  
+        </div>
         <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
           <img src="/assets/img-1.png" alt="img" >
         </div></div>
-    </div>
       </div>
-
+      </div>
+      </div>
 <br>
  </div>
 
@@ -65,14 +97,14 @@
                   <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
                 </button>
               </p>
-
             </div>
             <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
               <img src="/assets/img-1.png" alt="img" >
             </div></div>
-          <br>
+
         </div>
       </div>
+      <br>
     </div>
   </div>
 </section>

@@ -22,7 +22,7 @@
   <br>
   <br>
   <mat-radio-group aria-label="Select an option"  formControlName="type">
-    <mat-radio-button value="Cusine">Cuisine</mat-radio-button>
+    <mat-radio-button value="Cuisine">Cuisine</mat-radio-button>
     <mat-radio-button value="Voyage">Voyage</mat-radio-button>
     <mat-radio-button value="Aventure">Aventure</mat-radio-button>
   </mat-radio-group>
@@ -75,5 +75,5 @@
 
 
   <br><br>
-  <button type="submit"  mat-raised-button>Modifier un Blog</button>
+  <button type="submit" [disabled]="form.invalid" mat-raised-button>Modifier un Blog</button>
 </form>
