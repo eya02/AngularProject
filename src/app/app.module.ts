@@ -11,7 +11,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { DummyComponent } from './dummy/dummy.component';
 import { UserComponent } from './user/user.component';
 import { BlogComponent } from './blog/blog.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 
@@ -26,6 +26,7 @@ import { UpdateBlogComponent } from './update-blog/update-blog.component';
 import { SuppBlogComponent } from './supp-blog/supp-blog.component';
 import { TypeBlogComponent } from './type-blog/type-blog.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {CommonModule} from '@angular/common';
 
 
 @NgModule({
@@ -62,6 +63,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatTabsModule,
     MatCardModule,
     MatCheckboxModule,
+    CommonModule,
+
 
   ],
   providers: [],

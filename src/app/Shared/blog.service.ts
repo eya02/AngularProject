@@ -11,14 +11,17 @@ export class BlogService {
 
   constructor(private http: HttpClient, private router: Router) {
   }
+
   // tslint:disable-next-line:typedef
   getallblogs() {
-    return this .http.get<Blog[]>('./assets/blog.json');
+    return this.http.get<Blog[]>('./assets/blog.json');
   }
+
   // tslint:disable-next-line:typedef
   getBlogbyid(id: number) {
     return this.http.get('http://localhost:3000/Blogs/' + id);
   }
+
   // tslint:disable-next-line:typedef
   deleteBlog(id: number) {
     return this.http.delete('http://localhost:3000/Blogs/' + id);
@@ -28,16 +31,18 @@ export class BlogService {
     const url: string = 'http://localhost:3000/Blogs/' + id;
     return this.http.put(url, data);
   }
-  updateLike(like: string, id: any): Observable<any> {
+
+  updateLike(data: any, id: any): Observable<any> {
     const url: string = 'http://localhost:3000/Blogs/' + id;
-    return this.http.put(url, like);
+    return this.http.put(url, data);
   }
+
   // tslint:disable-next-line:typedef
   getallBlog() {
-
     return this
       .http.get<any>('http://localhost:3000/Blogs/');
   }
+
   addBlog(data: any): Observable<any> {
     const url = 'http://localhost:3000/Blogs/';
     return this.http.post(url, data);
@@ -69,5 +74,14 @@ export class BlogService {
         }
       );
   }
-}
 
+  submit2(data , id) {
+    this.updateLike(data , id ).subscribe(() => {
+      this.router.navigateByUrl('/blog', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/accueil']);
+      });
+    }
+);
+
+  }
+}

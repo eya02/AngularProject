@@ -12,16 +12,18 @@ import {Blog} from '../Models/Blog';
 export class DummyComponent implements OnInit {
   Blogs;
   id;
-like;
+  vaar;
   cheminImage = 'img-1.png';
-@Input()val: string;
+  inputVal = '' ;
+
+  @Input()val: string;
 
 vars: string;
-  constructor(private serviceblog: BlogService, private activatedRoute: ActivatedRoute) {
+  constructor(private serviceblog: BlogService, private activatedRoute: ActivatedRoute ,  private router: Router) {
     }
 
 
-  ngOnInit() {
+   ngOnInit() {
     this.serviceblog.getallBlog()
       .subscribe(
         (data) => {
@@ -44,22 +46,23 @@ getType(k: string)
     console.log(k);
 }
 // tslint:disable-next-line:typedef
-Addlike(id, like)
+Addlike(id)
 {
+
   this.serviceblog.getBlogbyid
-    (id)
+  (id)
     .subscribe(
       data => {
-        this.Blogs = data;
-        console.log(this.Blogs);
-        this.id = this.Blogs.id;
-        like += 1;
-        like = this.Blogs.like;
-        this.serviceblog
-          .updateLike(like, this.id)
-          .subscribe(() => {
+        this.vaar = data;
+        this.id = this.vaar.id;
 
-          });
+        console.log('this.vaar');
+
+        this.vaar.like++;
+        console.log(this.vaar.like);
+
+        this.serviceblog
+          .submit2(this.vaar , this.id);
       }, error => {
 
         console.log(error);
@@ -69,6 +72,37 @@ Addlike(id, like)
   ;
 
 
+
 }
+  // tslint:disable-next-line:typedef
+  Adddislike(id)
+  {
+    this.serviceblog.getBlogbyid
+    (id)
+      .subscribe(
+        data => {
+          this.vaar = data;
+          this.id = this.vaar.id;
+          console.log('this.vaar');
+          this.vaar.dislike++;
+          console.log(this.vaar.dislike);
+          this.serviceblog
+            .updateLike(this.vaar, this.id)
+            .subscribe(() => {
+              this.router.navigateByUrl('/blog', { skipLocationChange: true }).then(() => {
+                this.router.navigate(['/accueil']);
+              });
+            });
+        }, error => {
+
+          console.log(error);
+          alert('id not found');
+        }
+      )
+    ;
+
+
+  }
+
 
 }

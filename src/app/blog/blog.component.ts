@@ -3,6 +3,7 @@ import {FormBuilder , FormGroup , Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {BlogService} from '../Shared/blog.service';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',

@@ -11,5 +11,8 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
   }
+onSubmit(value: any){
+    console.log(value);
 
+}
 }
