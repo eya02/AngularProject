@@ -48,22 +48,26 @@
       Veuillez saisir la description
     </mat-error>
   </mat-form-field>
-  <br> <br>
-  <mat-form-field class="example-full-width" >
-    <input matInput  placeholder="like" formControlName="like">
+  <br>
+  <mat-form-field class="example-full-width">
+    <input  matInput placeholder="like" formControlName="like"  >
     <mat-error *ngIf="like.invalid" >
-      Veuillez saisir la description
+
     </mat-error>
   </mat-form-field>
+
   <br>
-  <br>
-  <mat-form-field class="example-full-width" >
-    <input matInput  placeholder="dislike" formControlName="dislike">
-    <mat-error *ngIf="dislike.invalid" >
-      Veuillez saisir la description
+
+
+
+  <mat-form-field class="example-full-width">
+    <input  matInput placeholder="dislike" formControlName="dislike"  >
+    <mat-error *ngIf="dislike.invalid">
     </mat-error>
   </mat-form-field>
+
   <br>
+
   <mat-form-field class="example-full-width">
     <input disabled matInput  >
     <input

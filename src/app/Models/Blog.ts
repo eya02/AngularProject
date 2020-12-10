@@ -9,4 +9,5 @@ export class Blog
   image: string;
   like: number;
   dislike: number;
+  etatlike: number;
 }

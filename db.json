@@ -3,13 +3,14 @@
     {
       "id": "kHFLjWw",
       "titre": "aaa",
-      "name": "rr",
+      "name": "kk",
       "type": "Aventure",
       "date": "2020-12-09T23:00:00.000Z",
       "description": "aaaaa",
       "image": "C:\\fakepath\\Capture d’écran (11).png",
-      "like": "1",
-      "dislike": "5"
+      "like": 9,
+      "dislike": 9,
+      "etatlike": 1
     },
     {
       "id": "t9rxR4R",
@@ -19,8 +20,9 @@
       "date": "",
       "description": "ddddddd",
       "image": "",
-      "like": 26,
-      "dislike": 6
+      "like": 27,
+      "dislike": 7,
+      "etatlike": 2
     },
     {
       "id": "0gmazHO",
@@ -30,19 +32,9 @@
       "date": "2020-12-23T23:00:00.000Z",
       "description": "zzzz",
       "image": "",
-      "like": 8,
-      "dislike": "0"
-    },
-    {
-      "id": "F4MSeQ9",
-      "titre": "jjjj",
-      "name": "lll",
-      "type": "Voyage",
-      "date": "2020-12-24T23:00:00.000Z",
-      "description": "kkkkkkkkkkkk",
-      "image": "C:\\fakepath\\Capture d’écran (16).png",
-      "like": "0",
-      "dislike": "0"
+      "like": 9,
+      "dislike": 1,
+      "etatlike": 2
     },
     {
       "id": "DirjkSx",
@@ -52,8 +44,30 @@
       "date": "2020-12-15T23:00:00.000Z",
       "description": "hhhh",
       "image": "C:\\fakepath\\Capture d’écran (18).png",
-      "like": "0",
-      "dislike": "0"
+      "like": 1,
+      "dislike": 1,
+      "etatlike": 2
+    },
+    {
+      "id": "EEZ2q7l",
+      "titre": "jhjh",
+      "name": "khalil ",
+      "type": "Voyage",
+      "date": "2020-12-17T23:00:00.000Z",
+      "description": "kjkjk",
+      "image": "C:\\fakepath\\Capture d’écran (11).png",
+      "like": 1,
+      "dislike": 1,
+      "etatlike": 1
+    }
+  ],
+  "Users": [
+    {
+      "username": "kk",
+      "email": "kk",
+      "password": "kkkkkk",
+      "connected": 0,
+      "id": 4
     }
   ]
 }

@@ -24,7 +24,8 @@ export class BlogComponent implements OnInit {
       description: ['', Validators.required],
       image: ['', Validators.required],
       like: ['0'],
-      dislike: ['0']
+      dislike: ['0'],
+      etatlike: ['0']
     });
     this.myForm.valueChanges.subscribe(console.log);
   }

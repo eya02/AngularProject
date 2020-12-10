@@ -18,10 +18,26 @@
       <h3>{{Blogs?.type}}</h3>
    <h4><mat-icon color="accent">thumb_up</mat-icon>   {{Blogs?.like}} personnes qui ont aimé(s) ce blog</h4>
       <h4> <mat-icon >thumb_down</mat-icon> {{Blogs?.dislike}} personnes qui n'ont pas aimé(s) ce blog</h4>
+      <div *ngFor="let u of Users ; let i=index">
+        <div *ngIf="u.connected==1 && Blogs?.name==u.username">
       <a href="#" class="cta" [routerLink]="['/Update/Blog/',Blogs?.id]">Update</a>&nbsp;
          <a href="#"  class="ctac" [routerLink]="['/Supp/Blog/',Blogs?.id]">Supprimer</a>
       <h4> <mat-icon>check_circle_outline</mat-icon> Crée Par : {{Blogs?.name}} </h4>
     </div>
   </div>
+      <div *ngFor="let u of Users ; let i=index">
+        <div *ngIf="u.connected==1 && Blogs?.name!=u.username">
+
+          <h4> <mat-icon>check_circle_outline</mat-icon> Crée Par : {{Blogs?.name}} </h4>
+        </div>
+      </div>
+      <div *ngFor="let u of Users ; let i=index">
+        <div *ngIf="u.connected==0">
+          <a href="#" class="cta" [routerLink]="['/signUp']">Update</a>&nbsp;
+          <a href="#"  class="ctac" [routerLink]="['/signUp']">Supprimer</a>
+          <h4> <mat-icon>check_circle_outline</mat-icon> Crée Par : {{Blogs?.name}} </h4>
+        </div>
+      </div>
+    </div></div>
 
 </section>

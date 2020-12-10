@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BlogService} from '../Shared/blog.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../Shared/user.service';
 @Component({
   selector: 'app-details.com',
   templateUrl: './detailsBlog.component.html',
@@ -18,8 +19,8 @@ like;
 dislike;
 image;
 type;
-
-  constructor(private serviceblog: BlogService, private activatedRoute: ActivatedRoute) {
+Users;
+  constructor(private serviceblog: BlogService,  private serviceuser: UserService, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -52,6 +53,18 @@ type;
         }
       )
     ;
+    this.serviceuser.getallUser()
+      .subscribe(
+        (data) => {
+
+          this.Users = data;
+          console.log(this.Users);
+        },
+        errors => {
+          console.log(errors);
+          alert(errors.status);
+        },
+      );
   }
 
 

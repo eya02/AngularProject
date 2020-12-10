@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, NgForm} from '@angular/forms';
+import {User} from '../Models/User';
+import {UserService} from '../Shared/user.service';
+import {BlogService} from '../Shared/blog.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -7,12 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  // tslint:disable-next-line:no-shadowed-variable
+  constructor(private fb: FormBuilder, public UserService: UserService , private router: Router) {
   }
-  onSubmit(value: any){
-    console.log(value);
+
+    ngOnInit(): void {
+  }
+   onSubmit(form){
+
+    const {id, username , email , password , repassword} = form.value;
+    console.log(form.value);
+    const newUser = new User(id, username, email, password);
+    this.UserService.submit(newUser);
 
 }
 }

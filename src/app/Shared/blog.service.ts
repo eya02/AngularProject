@@ -47,7 +47,11 @@ export class BlogService {
     const url = 'http://localhost:3000/Blogs/';
     return this.http.post(url, data);
   }
-
+  search(q: string): Observable<any> {
+    return this.http.get(
+      'http://localhost:3000/' + 'Blogs?titre_like=' + q
+    );
+  }
   submit(form) {
 
     this.addBlog(form)

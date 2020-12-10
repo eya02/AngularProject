@@ -49,7 +49,7 @@
       </mat-tab>
       <mat-tab label="Sign Up">
         <mat-card-content>
-          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
             <mat-form-field>
               <input
                 matInput
@@ -112,7 +112,7 @@
 
             <button
               mat-raised-button
-              class="login-button">
+              class="login-button" [disabled]="userForm.invalid">
               Sign Up
             </button>
           </form>

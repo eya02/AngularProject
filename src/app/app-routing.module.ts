@@ -6,6 +6,7 @@ import {BlogComponent} from './blog/blog.component';
 import {DetailsBlogComponent} from './detailsBlog/detailsBlog.component';
 import {UpdateBlogComponent} from './update-blog/update-blog.component';
 import {SuppBlogComponent} from './supp-blog/supp-blog.component';
+import {NavbarComponent} from './navbar/navbar.component';
 
 const routes: Routes = [
   {path: 'accueil', component: DummyComponent},
