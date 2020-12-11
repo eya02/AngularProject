@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class BlogService {
+  tit  ='';
 
   constructor(private http: HttpClient, private router: Router) {
   }
@@ -52,10 +53,14 @@ export class BlogService {
       'http://localhost:3000/' + 'Blogs?titre_like=' + q
     );
   }
+
+
   submit(form) {
 
     this.addBlog(form)
       .subscribe(() => {
+      //    this.http.post("http://localhost:3001/sendmail", this.tit);
+          window.open("http://localhost:3001/send", "_blank");
           this.router.navigate(['/accueil']);
         },
         (error) => {
