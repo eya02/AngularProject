@@ -46,6 +46,7 @@ export class BlogService {
 
   addBlog(data: any): Observable<any> {
     const url = 'http://localhost:3000/Blogs/';
+    window.open('http://localhost:3001/send', '_blank');
     return this.http.post(url, data);
   }
   search(q: string): Observable<any> {
@@ -54,35 +55,6 @@ export class BlogService {
     );
   }
 
-
-  submit(form) {
-
-    this.addBlog(form)
-      .subscribe(() => {
-      //    this.http.post("http://localhost:3001/sendmail", this.tit);
-          window.open("http://localhost:3001/send", "_blank");
-          this.router.navigate(['/accueil']);
-        },
-        (error) => {
-          switch (error.status) {
-            case 404: {
-              console.log('Not Found');
-              break;
-            }
-            case 403: {
-              console.log('Access Denied');
-              break;
-            }
-            case 500: {
-              console.log('Internal Server Error: ');
-              break;
-            }
-
-
-          }
-        }
-      );
-  }
 
   submit2(data , id) {
     this.updateLike(data , id ).subscribe(() => {

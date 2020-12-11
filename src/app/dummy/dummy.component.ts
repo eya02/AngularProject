@@ -112,7 +112,6 @@ Addlike(id)
           console.log('this.vaar');
           this.vaar.dislike++;
           this.vaar.etatlike = 2;
-
           console.log(this.vaar.dislike);
           this.serviceblog
             .updateLike(this.vaar, this.id)

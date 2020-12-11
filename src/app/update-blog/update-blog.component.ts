@@ -15,7 +15,9 @@ export class UpdateBlogComponent implements OnInit {
   profilePicture: string = null;
   errorMsg: string;
   files: string = null;
-
+  like;
+  dislike;
+etatlike;
   constructor(private fb: FormBuilder,
               private blogservice: BlogService,
               private route: ActivatedRoute,
@@ -30,7 +32,8 @@ export class UpdateBlogComponent implements OnInit {
       description: ['', Validators.required],
       image: ['', Validators.required],
       like: [''],
-      dislike: ['']
+      dislike: [''],
+      etatlike: [''],
     });
   }
 
@@ -40,6 +43,10 @@ export class UpdateBlogComponent implements OnInit {
     this.blogservice.getBlogbyid(this.id).subscribe((result) => {
       this.Blog = result;
       this.form.patchValue(this.Blog);
+      this.like = this.Blog.like;
+      this.dislike = this.Blog.dislike;
+      this.Blog.etatlike = this.etatlike;
+      console.log(this.etatlike);
     });
   }
   submit() {
@@ -76,13 +83,6 @@ export class UpdateBlogComponent implements OnInit {
     return this.form.get('image');
   }
   // tslint:disable-next-line:typedef
-  get like(){
-    return this.form.get('like');
-  }
-  // tslint:disable-next-line:typedef
-  get dislike(){
-    return this.form.get('dislike');
-  }
   // tslint:disable-next-line:typedef
   handleProfilePictureInput(file) {
     this.getBase64(file[0])

@@ -1,9 +1,10 @@
 <br>
 
-<form [formGroup]="myForm" (ngSubmit)=" Blogservice.submit(myForm.value) " class="example-form" >
+<form [formGroup]="myForm" (ngSubmit)=" submit(myForm.value) " class="example-form" >
 
-  <mat-form-field class="example-full-width" >
-    <input  matInput placeholder="nom" formControlName="name">
+  <mat-form-field class="example-full-width">
+    <input  matInput placeholder="nom" formControlName="name" >
+
       <mat-error *ngIf="name.invalid" >
        Veuillez saisir votre nom
       </mat-error>
