@@ -7,14 +7,17 @@
   <a mat-button routerLink="blog">Blog</a>
   <a mat-button>Calendrier</a>
   <div *ngFor="let b of Users ; let i=index">
+
     <div *ngIf="b.connected==1">
       <a mat-button >{{b.username}}</a>
-
       <a mat-raised-button (click)="Logout(b.id)" >Logout</a>
     </div>
+
     <div *ngIf="b.connected==0">
       <a mat-raised-button routerLink="signUp">Sign up</a>
-    </div></div>
+    </div>
+
+  </div>
 
 
 </mat-toolbar>

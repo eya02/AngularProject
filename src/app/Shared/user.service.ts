@@ -28,7 +28,9 @@ export class UserService {
     this.addUser(form)
       .subscribe(() => {
           console.log('eya');
-          this.router.navigate(['/accueil']);
+          this.router.navigate(['/accueil']) .then(() => {
+            window.location.reload();
+          });
         },
         (error) => {
           switch (error.status) {
@@ -58,6 +60,9 @@ export class UserService {
     this.Logout(data , id ).subscribe(() => {
     }
     );
+    return this.router.navigate(['/accueil']) .then(() => {
+      window.location.reload();
+    });
 
   }
 }

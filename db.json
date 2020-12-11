@@ -10,7 +10,7 @@
       "image": "C:\\fakepath\\Capture d’écran (11).png",
       "like": 9,
       "dislike": 9,
-      "etatlike": 1
+      "etatlike": 0
     },
     {
       "id": "t9rxR4R",
@@ -22,19 +22,19 @@
       "image": "",
       "like": 27,
       "dislike": 7,
-      "etatlike": 2
+      "etatlike": 0
     },
     {
       "id": "0gmazHO",
       "titre": "z",
-      "name": "z",
+      "name": "kk",
       "type": "Voyage",
       "date": "2020-12-23T23:00:00.000Z",
       "description": "zzzz",
       "image": "",
       "like": 9,
       "dislike": 1,
-      "etatlike": 2
+      "etatlike": 0
     },
     {
       "id": "DirjkSx",
@@ -46,7 +46,7 @@
       "image": "C:\\fakepath\\Capture d’écran (18).png",
       "like": 1,
       "dislike": 1,
-      "etatlike": 2
+      "etatlike": 0
     },
     {
       "id": "EEZ2q7l",
@@ -58,15 +58,39 @@
       "image": "C:\\fakepath\\Capture d’écran (11).png",
       "like": 1,
       "dislike": 1,
-      "etatlike": 1
+      "etatlike": 0
+    },
+    {
+      "id": "ijzqZq3",
+      "titre": "sahnoun",
+      "name": "aziz",
+      "type": "Voyage",
+      "date": "2020-12-17T23:00:00.000Z",
+      "description": "waaa",
+      "image": "C:\\fakepath\\hero-bg.png",
+      "like": "0",
+      "dislike": "0",
+      "etatlike": "0"
+    },
+    {
+      "id": "cJteKwF",
+      "titre": "lééé",
+      "name": "eyaaa",
+      "type": "Aventure",
+      "date": "2020-12-11T23:00:00.000Z",
+      "description": "ggggggggggg",
+      "image": "C:\\fakepath\\hero-bg.png",
+      "like": "0",
+      "dislike": "0",
+      "etatlike": "0"
     }
   ],
   "Users": [
     {
       "username": "kk",
       "email": "kk",
-      "password": "kkkkkk",
-      "connected": 0,
+      "password": "20791756",
+      "connected": 1,
       "id": 4
     }
   ]

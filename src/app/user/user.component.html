@@ -4,7 +4,7 @@
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
       <mat-tab label="Sign In">
         <mat-card-content>
-          <form action="">
+          <form #userForm2="ngForm" (ngSubmit)="onSubmit2(userForm2)">
             <mat-form-field>
               <input
                 matInput
@@ -25,7 +25,7 @@
                 minlength="6"
                 name="password"
                 ngModel
-                #password="ngModel">
+                password="ngModel">
               <mat-error
                 *ngIf="password.errors && password.errors.required">
                 Password is required
@@ -38,8 +38,8 @@
             </mat-form-field>
             <mat-checkbox>Remember Me!</mat-checkbox>
             <button
-              mat-raised-button
-              class="login-button">
+              class="login-button"
+              mat-raised-button>
               Sign In
             </button>
 
