@@ -1,5 +1,5 @@
 <app-type-blog (send)="getType($event)"></app-type-blog>
-<br>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
 <section id="projects">
@@ -7,9 +7,25 @@
     <div class="projects-header">
       <h1 class="section-title">Recent <span>Blogs</span></h1>
     </div>
-
-    <input  placeholder="Search..." type="text" [(ngModel)]="searchvalue" (input)="onsearch()" />
-    <br>
+<br><br>
+    <form class="form-inline my-2 my-lg-0"
+          (ngSubmit)="onsearch(f)" #f="ngForm">
+      <input class="form-control mr-sm-2"
+             type="text"
+             id="titre"
+             placeholder="Title"
+             aria-label="Search"
+             name="titre"
+             ngModel
+      >
+      <input class="form-control mr-sm-2"
+             type="text"
+             placeholder="Name"
+             aria-label="Search"
+             name="name"
+             ngModel
+      ><button type="submit" id="eya" [disabled]="!f.valid">Search</button>
+    </form>
 
     <div *ngFor="let b of Blogs ; let i=index">
       <div *ngFor="let u of Users ; let i=index">
@@ -20,7 +36,7 @@
                 <div class="project-info" >
                   <h1>{{b.titre}}</h1>
                   <br>
-                  <h2>Crée par :</h2><h2> {{b.name}}</h2>
+                  <h2>Created by</h2><h2> {{b.name}}</h2>
                   <p>
                     {{b.type}}
                   </p>
@@ -70,8 +86,6 @@
                       </button>
                     </p>
                   </div>
-
-
                 </div>
 
                 <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
@@ -92,7 +106,7 @@
                 <div class="project-info" >
                   <h1>{{b.titre}}</h1>
                   <br>
-                  <h2>Crée par :</h2><h2> {{b.name}}</h2>
+                  <h2>Created by </h2><h2> {{b.name}}</h2>
                   <p>
                     {{b.type}}
                   </p>
@@ -126,9 +140,6 @@
                       </button>
                     </p>
                   </div>
-
-
-
                   <div *ngIf="b.etatlike==2">
                     <p>
                       {{b.like}}
@@ -152,23 +163,17 @@
             </div>
           </div>
         </div>
-
-
-
-
-          <div *ngIf="u.connected==0">
+        <div *ngIf="u.connected==0">
             <div *ngIf="(vars =='')">
               <div class="all-projects">
                 <div class="project-item" >
                   <div class="project-info" >
                     <h1>{{b.titre}}</h1>
                     <br>
-                    <h2>Crée par :</h2><h2> {{b.name}}</h2>
+                    <h2>Created by </h2><h2> {{b.name}}</h2>
                     <p>
                       {{b.type}}
                     </p>
-
-
                     <p>
                       {{b.like}}
 
@@ -180,9 +185,6 @@
                         <i class="fa fa-thumbs-o-down" aria-hidden="true"  [ngStyle]="{'color':b.dislike < 5 ? 'yellow' : 'red'}"></i>
                       </button>
                     </p>
-
-
-
                   </div>
 
                   <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
@@ -196,7 +198,7 @@
                   <div class="project-info" >
                     <h1>{{b.titre}}</h1>
                     <br>
-                    <h2>Crée par :</h2><h2> {{b.name}}</h2>
+                    <h2>Created by </h2><h2> {{b.name}}</h2>
                     <p>
                       {{b.type}}
                     </p>
@@ -215,24 +217,15 @@
                     </p>
 
                   </div>
-
-                  <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
+                 <div class="project-img" [routerLink]="['/details/Blog/',b.id]">
                     <img src="{{'/assets/'+(b.image).substring(12)}}" alt="img" >
                   </div></div>
               </div>
             </div>
-
           </div>
-
-
-        </div>
+      </div>
         <br>
       </div></div>
-
-
-
-
-
 
 </section>
 

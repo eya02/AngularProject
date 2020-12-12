@@ -3,6 +3,7 @@ import {BlogService} from '../Shared/blog.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Blog} from '../Models/Blog';
 import {UserService} from '../Shared/user.service';
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-dummy',
   templateUrl: './dummy.component.html',
@@ -55,10 +56,11 @@ vars = '';
        );
 
   }
-  onsearch(){
-    this.serviceblog.search(this.searchvalue).subscribe(
+  onsearch(form: NgForm){
+    const val = form.value;
+    this.serviceblog.search(val.titre , val.name).subscribe(
       (data) => {
-        if ( this.searchvalue != null) {
+        if ( val.name != null) {
           this.Blogs = data;
         }
       }

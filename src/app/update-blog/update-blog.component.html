@@ -3,16 +3,16 @@
 
 
   <mat-form-field class="example-full-width" >
-    <input  matInput placeholder="nom" formControlName="name">
+    <input  matInput placeholder="Name" formControlName="name">
     <mat-error *ngIf="name.invalid" >
-      Veuillez saisir votre nom
+      Name is required
     </mat-error>
   </mat-form-field>
   <br>
   <mat-form-field class="example-full-width">
-    <input  matInput placeholder="titre" formControlName="titre">
+    <input  matInput placeholder="Title" formControlName="titre">
     <mat-error *ngIf="titre.invalid" >
-      Veuillez saisir le titre
+      Title is required
     </mat-error>
   </mat-form-field>
 
@@ -22,9 +22,12 @@
   <br>
   <br>
   <mat-radio-group aria-label="Select an option"  formControlName="type">
-    <mat-radio-button value="Cuisine">Cuisine</mat-radio-button>
-    <mat-radio-button value="Voyage">Voyage</mat-radio-button>
-    <mat-radio-button value="Aventure">Aventure</mat-radio-button>
+    <mat-radio-button value="Kitchen">Kitchen</mat-radio-button>
+    <mat-radio-button value="Trip">Trip</mat-radio-button>
+    <mat-radio-button value="Adventure">Adventure</mat-radio-button>
+    <mat-error *ngIf="type.invalid" >
+      Type is required
+    </mat-error>
   </mat-radio-group>
 
   <br>
@@ -37,15 +40,15 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
     <mat-error *ngIf="date.invalid" >
-      Veuillez choisir une date
+      Date is required
     </mat-error>
   </mat-form-field>
 
   <br>
   <mat-form-field class="example-full-width" >
-    <textarea matInput  placeholder="description" style="height:200px"formControlName="description"></textarea>
+    <textarea matInput  placeholder="Description" style="height:200px"formControlName="description"></textarea>
     <mat-error *ngIf="description.invalid" >
-      Veuillez saisir la description
+      Description is required
     </mat-error>
   </mat-form-field>
   <br>
@@ -62,5 +65,5 @@
 
 
   <br><br>
-  <button type="submit" [disabled]="form.invalid" mat-raised-button>Modifier un Blog</button>
+  <button type="submit" [disabled]="form.invalid" mat-raised-button>Update Blog</button>
 </form>

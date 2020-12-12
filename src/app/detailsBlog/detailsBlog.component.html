@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-right">
-      <h1 class="section-title">Détails <span>Blog</span></h1>
+      <h1 class="section-title">Details <span>Blog</span></h1>
       <br>
       <h2 style="color: palevioletred">{{Blogs?.titre}}</h2>
         <p>
@@ -16,14 +16,14 @@
         </p>
       <h3><mat-icon>calendar_today</mat-icon> {{Blogs?.date|date}}</h3>
       <h3>{{Blogs?.type}}</h3>
-   <h4><mat-icon color="accent">thumb_up</mat-icon>   {{Blogs?.like}} personnes qui ont aimé(s) ce blog</h4>
-      <h4> <mat-icon >thumb_down</mat-icon> {{Blogs?.dislike}} personnes qui n'ont pas aimé(s) ce blog</h4>
+   <h4><mat-icon color="accent">thumb_up</mat-icon>   {{Blogs?.like}} people who liked this blog</h4>
+      <h4> <mat-icon >thumb_down</mat-icon> {{Blogs?.dislike}} people who did not like this blog</h4>
 
       <div *ngFor="let u of Users ; let i=index">
 
         <div *ngIf="u.connected==1 && Blogs?.name==u.username">
          <a href="#" class="cta" [routerLink]="['/Update/Blog/',Blogs?.id]">Update</a>&nbsp;
-         <a href="#"  class="ctac" [routerLink]="['/Supp/Blog/',Blogs?.id]">Supprimer</a>
+         <a href="#"  class="ctac" [routerLink]="['/Supp/Blog/',Blogs?.id]">Delete</a>
 
         </div>
 
@@ -34,12 +34,12 @@
 
         <div *ngIf="u.connected==0">
           <a href="#" class="cta" [routerLink]="['/signUp']">Update</a>&nbsp;
-          <a href="#"  class="ctac" [routerLink]="['/signUp']">Supprimer</a>
+          <a href="#"  class="ctac" [routerLink]="['/signUp']">Delete</a>
 
         </div>
 
       </div>
-      <h4> <mat-icon>check_circle_outline</mat-icon> Crée Par : {{Blogs?.name}} </h4>
+      <h4> <mat-icon>check_circle_outline</mat-icon> Created by : {{Blogs?.name}} </h4>
     </div>
   </div>
 

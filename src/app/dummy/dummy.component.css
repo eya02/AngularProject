@@ -246,3 +246,22 @@ button.dislike{
   border-width: 1px;
   font-size: 15px;
 }
+#eya{
+  color: black;
+  padding: 3px 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #898b8a;
+  border: 2px solid white;
+  font-size: 2rem;
+  letter-spacing: .1rem;
+  margin-top: 30px;
+  transition: .3s ease;
+  transition-property: background-color, color
+}
+#eya:hover {
+  color: #898b8a;
+  background-color: white;
+}
+

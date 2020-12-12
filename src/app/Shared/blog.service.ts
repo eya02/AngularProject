@@ -49,9 +49,9 @@ export class BlogService {
     window.open('http://localhost:3001/send', '_blank');
     return this.http.post(url, data);
   }
-  search(q: string): Observable<any> {
+  search(q: string , a: string): Observable<any> {
     return this.http.get(
-      'http://localhost:3000/' + 'Blogs?titre_like=' + q
+      'http://localhost:3000/' + 'Blogs?titre_like=' + q + '&name_like=' + a
     );
   }
 
