@@ -22,7 +22,7 @@ vaar;
         (data) => {
 
           this.Users = data;
-          console.log(this.Users);
+          console.log(this.Users.length);
         },
         errors => {
           console.log(errors);

@@ -13,13 +13,14 @@
       <a mat-button >{{b.username}}</a>
       <a mat-raised-button (click)="Logout(b.id)" >Logout</a>
     </div>
-
     <div *ngIf="b.connected==0">
       <a mat-button routerLink="signUp">Blog</a>
       <a mat-raised-button routerLink="signUp">Sign up</a>
     </div>
-
   </div>
-
+  <div *ngIf="Users.length==0">
+    <a mat-button routerLink="signUp">Blog</a>
+    <a mat-raised-button routerLink="signUp">Sign up</a>
+  </div>
 
 </mat-toolbar>
